@@ -1,0 +1,21 @@
+* C:\Users\doug_000\Documents\GitHub\PiCluster\Electronics\FanCtrlr.asc
+V1 N004 0 PULSE(0 12 0 0 0 8u 100u)
+D1 N004 N005 D
+R1 N006 N005 10K
+C1 N006 0 10µ
+R2 0 N006 10K
+R3 N002 0 100
+V2 N001 0 12
+Q1 N001 N003 N002 0 PNP
+Q2 N003 N007 N008 0 NPN
+R4 N007 N006 10K
+R5 N001 N003 1K
+R6 N008 0 10K
+.model D D
+.lib C:\Program Files (x86)\LTC\LTspiceIV\lib\cmp\standard.dio
+.model NPN NPN
+.model PNP PNP
+.lib C:\Program Files (x86)\LTC\LTspiceIV\lib\cmp\standard.bjt
+.tran 1s
+.backanno
+.end
