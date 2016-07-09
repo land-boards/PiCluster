@@ -22,7 +22,6 @@ y = numpy.linspace(20,300,n) if comm.rank == 0 else None
 dot = numpy.array([0.])
 local_n = numpy.array([0])
 
-start = MPI.Wtime()
 #test for conformability
 if rank == 0:
 	if (n != y.size):
@@ -38,6 +37,7 @@ if rank == 0:
 	#length of each process's portion of the original vector
 	local_n = numpy.array([n/size])
 
+start = MPI.Wtime()
 #communicate local array size to all processes
 comm.Bcast(local_n, root=0)
 
@@ -54,13 +54,14 @@ local_dot = numpy.array([numpy.dot(local_x, local_y)])
 
 #sum the results of each
 comm.Reduce(local_dot, dot, op = MPI.SUM)
+endParallel = MPI.Wtime() - start
 
 if (rank == 0):
 	print "The dot product is", dot[0], "computed in parallel"
-	end2 = MPI.Wtime()
-	print "and", numpy.dot(x,y), "computed serially"
-	end = MPI.Wtime()
-	print 'Total time:',end - start
-	print 'Serial time:',end2 - start
-	print 'Paralled time:',end - end2
+	start = MPI.Wtime()
+	q = numpy.dot(x,y)
+	serialTime = MPI.Wtime() - start
+	print "and", q, "computed serially"
+	print 'Serial time:',serialTime
+	print 'Parall time:',endParallel
 	
