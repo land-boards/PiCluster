@@ -4,7 +4,8 @@
 import numpy
 import sys
 import time
-start = time()
+
+start = time.time()
 
 #takes in command-line arguments [a,b,n]
 a = float(sys.argv[1])
@@ -28,4 +29,5 @@ def integrateRange(a, b, n):
 integral = integrateRange(a, b, n)
 print "With n =", n, "trapezoids, our estimate of the integral\
 from", a, "to", b, "is", integral
-print 'time:',MPI.Wtime() - start
+end = time.time()
+print 'time:',(end - start)
