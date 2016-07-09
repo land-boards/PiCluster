@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-#trapParallel_2.py
-#example to run: mpiexec -n 4 python26 trapParallel_2.py 0.0 1.0 10000
+# trapParallel_2.py
+# Example to run: mpiexec -n 4 python26 trapParallel_2.py 0.0 1.0 10000
 import numpy
 import sys
 from mpi4py import MPI
