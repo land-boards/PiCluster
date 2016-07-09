@@ -57,6 +57,10 @@ comm.Reduce(local_dot, dot, op = MPI.SUM)
 
 if (rank == 0):
 	print "The dot product is", dot[0], "computed in parallel"
+	end2 = MPI.Wtime()
 	print "and", numpy.dot(x,y), "computed serially"
 	end = MPI.Wtime()
-	print 'time:',end - start
+	print 'Total time:',end - start
+	print 'Serial time:',end2 - start
+	print 'Paralled time:',end - end2
+	
