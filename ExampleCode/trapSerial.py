@@ -3,7 +3,8 @@
 
 import numpy
 import sys
-start = MPI.Wtime()
+import time
+start = time()
 
 #takes in command-line arguments [a,b,n]
 a = float(sys.argv[1])
