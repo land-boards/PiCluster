@@ -5,6 +5,7 @@ import numpy
 import sys
 from mpi4py import MPI
 from mpi4py.MPI import ANY_SOURCE
+start = MPI.Wtime()
 
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
@@ -57,3 +58,4 @@ if comm.rank == 0:
 	print "With n =", n, "trapezoids, our estimate of the integral from"\
 	, a, "to", b, "is", total
 	
+print 'time:',MPI.Wtime() - start
