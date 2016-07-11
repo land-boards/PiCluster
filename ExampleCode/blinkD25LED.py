@@ -42,7 +42,7 @@ def blinkLED(channel):
 GPIO.setmode(GPIO.BCM)	# setup GPIO using Board numbering
 
 # Set all of the pins to outputs
-GPIO.setup(J25, GPIO.OUT)
+GPIO.setup(25, GPIO.OUT)
 
 # Blink all of the LEDs one at a time forever
 # CTRL-C to exit which is not a particularly elegant exit strategy, but this is a demo program
