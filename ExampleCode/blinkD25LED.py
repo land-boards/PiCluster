@@ -25,6 +25,12 @@ Code
 import RPi.GPIO as GPIO
 import os
 import time
+from mpi4py import MPI
+
+comm = MPI.COMM_WORLD
+myRank = comm.rank
+
+#print 'Hi my rank is:', comm.rank
 
 # Assign all of the GPIO lines (by board pin numbering) to their corresponding jacks 
 # on the GVS card.
@@ -36,10 +42,11 @@ def blinkLED(channel):
 	The high level output turns on the LED.
 	'''
 	GPIO.output(channel, 1)
-	time.sleep(0.25)
+	time.sleep((float(myRank)*0.25) + 0.25)
 	GPIO.output(channel, 0)
 	time.sleep(0.25)
-	
+
+GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)	# setup GPIO using Board numbering
 
 # Set all of the pins to outputs
