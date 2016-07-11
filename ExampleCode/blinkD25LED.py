@@ -38,6 +38,7 @@ def blinkLED(channel):
 	GPIO.output(channel, 1)
 	time.sleep(0.25)
 	GPIO.output(channel, 0)
+	time.sleep(0.25)
 	
 GPIO.setmode(GPIO.BCM)	# setup GPIO using Board numbering
 
