@@ -81,3 +81,4 @@ while True:
 	data += 1
 	if data == 8:
 		data = 0
+	time.sleep(0.5)
