@@ -70,7 +70,7 @@ while True:
 
 	if direction:
 		data += 1
-		if data == 8:
+		if data == mySize:
 			data = 7
 			direction = False
 	else:
