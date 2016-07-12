@@ -59,12 +59,12 @@ data = 0
 direction = True
 while True:
 	if myRank == 0:
-		data = comm.bcast(data, root=0)
+		comm.bcast(data, root=0)
+		time.sleep(1.0)
+		
 	if data == myRank:
 		cycleLED()
 		print 'cycled LED on board:',data
-
-	time.sleep(1.0)
 	
 	if direction:
 		data += 1
