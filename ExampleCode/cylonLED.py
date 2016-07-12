@@ -68,11 +68,11 @@ while True:
 	if direction:
 		data += 1
 		if data == mySize:
-			data = 7
+			data = 6
 			direction = False
 	else:
 		data -= 1
 		if data == -1:
-			data = 1
+			data = 2
 			direction = True
 	time.sleep(0.5)
