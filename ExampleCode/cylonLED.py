@@ -64,20 +64,6 @@ while True:
 		data = comm.bcast(data, root=0)
 	if data == myRank:
 		cycleLED()
-	elif data == myRank:
-		cycleLED()
-	elif data == myRank:
-		cycleLED()
-	elif data == myRank:
-		cycleLED()
-	elif data == myRank:
-		cycleLED()
-	elif data == myRank:
-		cycleLED()
-	elif data == myRank:
-		cycleLED()
-	elif data == myRank:
-		cycleLED()
 	data += 1
 	if data == 8:
 		data = 0
