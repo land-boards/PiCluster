@@ -4,7 +4,12 @@
 
 Code to blink D25 LED on the RPI-PWR card.
 
-This code must be run as Superuser on the Raspberry Pi.
+Run by typing on the main processor -
+
+mpirun.openmpi -np 8 -machinefile /home/pi/mpi_testing/machinefile python blinkD25LED.py
+
+Where -np 8 = Run on 8 processors
+machinefile contains a list of the IP addresses of the cards
 
 ============
 Dependencies
@@ -32,28 +37,22 @@ myRank = comm.rank
 
 #print 'Hi my rank is:', comm.rank
 
-# Assign all of the GPIO lines (by board pin numbering) to their corresponding jacks 
-# on the GVS card.
-
-
 def blinkLED(channel):
-	'''Function to blink an LED attached to an output channel
-	Drives line high for a short time and then drives it low.
-	The high level output turns on the LED.
+	'''Function to blink an LED attached to an output channel.
+	Blink time is a function of the processor rank.
 	'''
 	GPIO.output(channel, 1)
 	time.sleep((float(myRank)*0.25) + 0.25)
 	GPIO.output(channel, 0)
 	time.sleep(0.25)
 
-GPIO.setwarnings(False)
+GPIO.setwarnings(False)	# remove warnings about pre-assigned channels
 GPIO.setmode(GPIO.BCM)	# setup GPIO using Board numbering
+GPIO.setup(25, GPIO.OUT)# Set pin to output
 
-# Set all of the pins to outputs
-GPIO.setup(25, GPIO.OUT)
-
-# Blink all of the LEDs one at a time forever
+# Blink the LEDs one at a time forever
 # CTRL-C to exit which is not a particularly elegant exit strategy, but this is a demo program
+# CTRL-C stops all of the nodes in the cluster
 
 while 1:
 	blinkLED(25)
