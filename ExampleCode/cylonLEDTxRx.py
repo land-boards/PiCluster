@@ -64,6 +64,7 @@ while True:
 	if myRank == 0:
 		if data == 0:
 			cycleLED()
+			print 'cycled LED on board:',myRank
 		comm.send(LED_On, dest=data)
 		time.sleep(0.5)
 		comm.send(LED_Off, dest=data)
