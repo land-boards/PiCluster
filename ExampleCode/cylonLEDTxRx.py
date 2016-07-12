@@ -81,4 +81,4 @@ while True:
 		data = comm.recv(source=0)
 		setLED(data)
 		if data == 1:
-			print 'cycled LED on board:',data
+			print 'cycled LED on board:',myRank
