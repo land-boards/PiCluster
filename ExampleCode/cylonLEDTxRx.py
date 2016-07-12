@@ -55,13 +55,17 @@ def cycleLED():
 	time.sleep(0.25)
 	setLED(0)
 	
-data = 1
+LED_On = 1
+LED_Off = 0
+
 direction = True
 while True:
 	if myRank == 0:
-		comm.send(data, dest=data)
-		cycleLED()
-		time.sleep(1.0)
+		if data == 0:
+			cycleLED()
+		comm.send(LED_On, dest=data)
+		time.sleep(0.2)
+		comm.send(LED_Off, dest=data)
 		if direction:
 			data += 1
 			if data == mySize:
@@ -74,5 +78,6 @@ while True:
 				direction = True
 	else:
 		data = comm.recv(source=0)
-		cycleLED()
-		print 'cycled LED on board:',data
+		setLED(data)
+		if data == 1:
+			print 'cycled LED on board:',data
