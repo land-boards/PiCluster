@@ -75,4 +75,4 @@ while True:
 		if data == -1:
 			data = 2
 			direction = True
-	time.sleep(0.5)
+	time.sleep(1.0)
