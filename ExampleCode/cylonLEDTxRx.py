@@ -59,6 +59,7 @@ LED_On = 1
 LED_Off = 0
 
 direction = True
+data = 0
 while True:
 	if myRank == 0:
 		if data == 0:
