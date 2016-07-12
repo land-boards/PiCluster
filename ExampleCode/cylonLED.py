@@ -50,10 +50,6 @@ GPIO.setup(25, GPIO.OUT)# Set pin to output
 # CTRL-C to exit which is not a particularly elegant exit strategy, but this is a demo program
 # CTRL-C stops all of the nodes in the cluster
 
-activeNode = 0
-data = 0
-print 'size:',mySize
-
 def cycleLED():
 	setLED(1)
 	time.sleep(0.25)
@@ -67,6 +63,7 @@ while True:
 		data = comm.bcast(data, root=0)
 	if data == myRank:
 		cycleLED()
+		print 'cycled LED on board:',data
 
 	if direction:
 		data += 1
