@@ -60,7 +60,7 @@ def cycleLED():
 	
 data = 0
 while True:
-	if rank == 0:
+	if myRank == 0:
 		data = comm.bcast(data, root=0)
 	if data == myRank:
 		cycleLED()
