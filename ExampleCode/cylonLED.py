@@ -66,17 +66,17 @@ while True:
 		cycleLED()
 	elif data == myRank:
 		cycleLED()
-	elif data[2] == myRank:
+	elif data == myRank:
 		cycleLED()
-	elif data[3] == myRank:
+	elif data == myRank:
 		cycleLED()
-	elif data[4] == myRank:
+	elif data == myRank:
 		cycleLED()
-	elif data[5] == myRank:
+	elif data == myRank:
 		cycleLED()
-	elif data[6] == myRank:
+	elif data == myRank:
 		cycleLED()
-	elif data[7] == myRank:
+	elif data == myRank:
 		cycleLED()
 	data += 1
 	if data == 8:
