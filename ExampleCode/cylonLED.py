@@ -54,7 +54,6 @@ def cycleLED():
 	setLED(1)
 	time.sleep(0.25)
 	setLED(0)
-	time.sleep(0.25)
 	
 data = 0
 direction = True
@@ -65,6 +64,8 @@ while True:
 		cycleLED()
 		print 'cycled LED on board:',data
 
+	time.sleep(1.0)
+	
 	if direction:
 		data += 1
 		if data == mySize:
@@ -75,4 +76,4 @@ while True:
 		if data == -1:
 			data = 2
 			direction = True
-	time.sleep(1.0)
+
