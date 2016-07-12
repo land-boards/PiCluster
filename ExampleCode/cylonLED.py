@@ -34,6 +34,7 @@ from mpi4py import MPI
 
 comm = MPI.COMM_WORLD
 myRank = comm.rank
+mySize = comm.size
 
 def setLED(ledState):
 	'''Function to blink an LED attached to an output channel.
@@ -51,6 +52,7 @@ GPIO.setup(25, GPIO.OUT)# Set pin to output
 
 activeNode = 0
 data = 0
+print 'size:',mySize
 
 def cycleLED():
 	setLED(1)
