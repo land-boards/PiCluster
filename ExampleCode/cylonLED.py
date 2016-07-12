@@ -59,12 +59,21 @@ def cycleLED():
 	time.sleep(0.25)
 	
 data = 0
+direction = True
 while True:
 	if myRank == 0:
 		data = comm.bcast(data, root=0)
 	if data == myRank:
 		cycleLED()
-	data += 1
-	if data == 8:
-		data = 0
+
+	if direction:
+		data += 1
+		if data == 8:
+			data = 6
+			direction = False
+	else:
+		data -= 1
+		if data == -1:
+			data = 2
+			direction = True
 	time.sleep(0.5)
