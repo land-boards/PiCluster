@@ -65,7 +65,7 @@ while True:
 		if data == 0:
 			cycleLED()
 		comm.send(LED_On, dest=data)
-		time.sleep(0.2)
+		time.sleep(0.5)
 		comm.send(LED_Off, dest=data)
 		if direction:
 			data += 1
@@ -75,7 +75,7 @@ while True:
 		else:
 			data -= 1
 			if data == -1:
-				data = 2
+				data = 1
 				direction = True
 	else:
 		data = comm.recv(source=0)
