@@ -60,7 +60,7 @@ direction = True
 while True:
 	if myRank == 0:
 		comm.bcast(data, root=0)
-		time.sleep(1.0)
+		cycleLED()
 		
 	if data == myRank:
 		cycleLED()
@@ -76,4 +76,4 @@ while True:
 		if data == -1:
 			data = 2
 			direction = True
-
+	time.sleep(1.0)
