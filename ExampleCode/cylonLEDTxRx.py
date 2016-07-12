@@ -65,9 +65,10 @@ while True:
 		if data == 0:
 			cycleLED()
 			print 'cycled LED on board:',myRank
-		comm.send(LED_On, dest=data)
-		time.sleep(0.5)
-		comm.send(LED_Off, dest=data)
+		else:
+			comm.send(LED_On, dest=data)
+			time.sleep(0.5)
+			comm.send(LED_Off, dest=data)
 		if direction:
 			data += 1
 			if data == mySize:
