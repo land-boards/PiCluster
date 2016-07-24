@@ -57,10 +57,10 @@ GPIO.setup(PWR_SW, GPIO.IN)
 # Blink all of the LEDs one at a time forever
 # CTRL-C to exit which is not a particularly elegant exit strategy, but this is a demo program
 
-initReset = GPIO.input(RESET_LO)
+lastReset = GPIO.input(RESET_LO)
 print 'initial reset', initReset
 
-initPowerSw = GPIO.input(PWR_SW)
+lastPowerSw = GPIO.input(PWR_SW)
 print 'initial power switch', initPowerSw
 
 while 1:
@@ -69,9 +69,12 @@ while 1:
 	blinkLED(PWR_LED_NEG)
 	blinkLED(BOARD_LED)
 	time.sleep(0.25)
-	if initReset != GPIO.input(RESET_LO):
-		initReset = GPIO.input(RESET_LO)
+	initReset = GPIO.input(RESET_LO)
+	initPowerSw = GPIO.input(PWR_SW)
+	if initReset != lastReset:
+		lastReset = initReset
 		print 'reset changed',initReset
-	if initPowerSw != GPIO.input(PWR_SW):
-		initPowerSw = GPIO.input(PWR_SW)
+	if initPowerSw != lastPowerSw:
+		lastPowerSw = initPowerSw
 		print 'power switch changed',initPowerSw
+		
