@@ -29,9 +29,10 @@ import time
 HDD_LED = 27
 PWR_LED_POS = 16
 PWR_LED_NEG = 24
+BOARD_LED = 25
+
 RESET_LO = 18
 PWR_SW = 23
-BOARD_LED = 25
 
 def blinkLED(channel):
 	'''Function to blink an LED attached to an output channel
@@ -49,14 +50,27 @@ GPIO.setup(HDD_LED, GPIO.OUT)
 GPIO.setup(PWR_LED_POS, GPIO.OUT)
 GPIO.setup(PWR_LED_NEG, GPIO.OUT)
 GPIO.setup(BOARD_LED, GPIO.OUT)
+
 GPIO.setup(RESET_LO, GPIO.IN)
 GPIO.setup(PWR_SW, GPIO.IN)
 
 # Blink all of the LEDs one at a time forever
 # CTRL-C to exit which is not a particularly elegant exit strategy, but this is a demo program
 
+initReset = GPIO.input(RESET_LO)
+print 'initial reset', initReset
+
+initPowerSw = GPIO.input(PWR_SW)
+print 'initial power switch', initPowerSw
+
 while 1:
 	blinkLED(HDD_LED)
 	blinkLED(PWR_LED_POS)
 	blinkLED(PWR_LED_NEG)
 	blinkLED(BOARD_LED)
+	if initReset != GPIO.input(RESET_LO):
+		initReset = GPIO.input(RESET_LO)
+		print 'reset changed'
+	if initPowerSw != GPIO.input(PWR_SW)
+		initPowerSw = GPIO.input(PWR_SW)
+		print 'power switch changed'
