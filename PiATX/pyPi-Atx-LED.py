@@ -51,6 +51,11 @@ GPIO.setup(PWR_LED_POS, GPIO.OUT)
 GPIO.setup(PWR_LED_NEG, GPIO.OUT)
 GPIO.setup(BOARD_LED, GPIO.OUT)
 
+GPIO.output(HDD_LED, 0)
+GPIO.output(PWR_LED_POS, 0)
+GPIO.output(PWR_LED_NEG, 0)
+GPIO.output(BOARD_LED, 0)
+
 GPIO.setup(RESET_LO, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(PWR_SW, GPIO.IN)
 
