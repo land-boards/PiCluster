@@ -68,6 +68,7 @@ while 1:
 	blinkLED(PWR_LED_POS)
 	blinkLED(PWR_LED_NEG)
 	blinkLED(BOARD_LED)
+	time.sleep(0.25)
 	if initReset != GPIO.input(RESET_LO):
 		initReset = GPIO.input(RESET_LO)
 		print 'reset changed'
