@@ -51,7 +51,7 @@ GPIO.setup(PWR_LED_POS, GPIO.OUT)
 GPIO.setup(PWR_LED_NEG, GPIO.OUT)
 GPIO.setup(BOARD_LED, GPIO.OUT)
 
-GPIO.setup(RESET_LO, GPIO.IN)
+GPIO.setup(RESET_LO, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(PWR_SW, GPIO.IN)
 
 # Blink all of the LEDs one at a time forever
