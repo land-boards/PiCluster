@@ -58,10 +58,10 @@ GPIO.setup(PWR_SW, GPIO.IN)
 # CTRL-C to exit which is not a particularly elegant exit strategy, but this is a demo program
 
 lastReset = GPIO.input(RESET_LO)
-print 'initial reset', initReset
+print 'initial reset', lastReset
 
 lastPowerSw = GPIO.input(PWR_SW)
-print 'initial power switch', initPowerSw
+print 'initial power switch', lastPowerSw
 
 while 1:
 	blinkLED(HDD_LED)
