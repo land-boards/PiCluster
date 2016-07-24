@@ -27,7 +27,7 @@ import os
 import time
 
 HDD_LED = 27
-PWR_LED_POS = 16
+PWR_LED_POS = 17
 PWR_LED_NEG = 24
 BOARD_LED = 25
 
