@@ -71,7 +71,7 @@ while 1:
 	time.sleep(0.25)
 	if initReset != GPIO.input(RESET_LO):
 		initReset = GPIO.input(RESET_LO)
-		print 'reset changed'
+		print 'reset changed',initReset
 	if initPowerSw != GPIO.input(PWR_SW):
 		initPowerSw = GPIO.input(PWR_SW)
-		print 'power switch changed'
+		print 'power switch changed',initPowerSw
