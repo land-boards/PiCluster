@@ -26,7 +26,7 @@ import RPi.GPIO as GPIO
 import os
 import time
 
-HDD_LED = 27
+HDD_LED = 21
 PWR_LED_POS = 17
 PWR_LED_NEG = 24
 BOARD_LED = 25
