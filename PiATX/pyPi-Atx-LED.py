@@ -70,9 +70,9 @@ print 'initial power switch', lastPowerSw
 
 while 1:
 	blinkLED(HDD_LED)
-	blinkLED(PWR_LED_POS)
-	blinkLED(PWR_LED_NEG)
-	blinkLED(BOARD_LED)
+	# blinkLED(PWR_LED_POS)
+	# blinkLED(PWR_LED_NEG)
+	# blinkLED(BOARD_LED)
 	time.sleep(0.25)
 	initReset = GPIO.input(RESET_LO)
 	initPowerSw = GPIO.input(PWR_SW)
