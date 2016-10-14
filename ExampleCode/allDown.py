@@ -49,16 +49,11 @@ GPIO.setup(25, GPIO.OUT)# Set pin to output
 data = 1
 while True:
 	if myRank == 0:
-		if data == 0:
-			cycleLED()
-			print 'cycled LED on board:',myRank
-		else:
-			comm.send(0, dest=data)
-			time.sleep(0.5)
-		if direction:
-			data += 1
-			if data == mySize:
-				os.system('sudo halt')
+		comm.send(0, dest=data)
+		time.sleep(0.5)
+		data += 1
+		if data == mySize:
+			os.system('sudo halt')
 	else:
 		data = comm.recv(source=0)
 		os.system('sudo halt')
