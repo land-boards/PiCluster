@@ -50,6 +50,7 @@ data = 1
 while True:
 	if myRank == 0:
 		comm.send(0, dest=data)
+		print 'Shutdown board',data
 		time.sleep(0.5)
 		data += 1
 		if data == mySize:
