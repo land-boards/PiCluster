@@ -82,7 +82,7 @@ def findLargestNxNPowerGrid(size,fuelCellArrayAs2DList):
 			if cellsNxNPower > maxPower:
 				maxPower = cellsNxNPower
 				maxXY_Power = [xOffset,yOffset,size,maxPower]
-	print 'maxXY_Power',maxXY_Power
+	print 'findLargestNxNPowerGrid: node',MPrank,'power',maxXY_Power[3],'size',size
 	return maxXY_Power
 	
 def interateOverFuelArraySizes(fuelCellArrayAs2DList):
@@ -97,9 +97,8 @@ def interateOverFuelArraySizes(fuelCellArrayAs2DList):
 			powerLocation = maxXY_Power
 			sizeKeeper = size
 			powerVector = [maxXY_Power[0],maxXY_Power[1],sizeKeeper,powerLocation]
-			print 'interateOverFuelArraySizes: will return',
-		print '.',
-	return maxXY_Power
+			print 'interateOverFuelArraySizes: node number',MPrank,'will return',powerVector
+	return powerVector
 
 ########################################################################
 ## Main
