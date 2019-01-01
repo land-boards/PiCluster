@@ -96,6 +96,8 @@ def interateOverFuelArraySizes(fuelCellArrayAs2DList):
 			powerMax = maxXY_Power[3]
 			powerLocation = maxXY_Power
 			sizeKeeper = size
+			powerVector = [maxXY_Power[0],maxXY_Power[1],sizeKeeper,powerLocation]
+			print 'interateOverFuelArraySizes: will return',
 		print '.',
 	return maxXY_Power
 
