@@ -96,7 +96,7 @@ def interateOverFuelArraySizes(fuelCellArrayAs2DList):
 			powerMax = maxXY_Power[3]
 			powerLocation = maxXY_Power
 			sizeKeeper = size
-			powerVector = [maxXY_Power[0],maxXY_Power[1],sizeKeeper,powerLocation]
+			powerVector = maxXY_Power
 			print 'interateOverFuelArraySizes: node number',MPrank,'will return',powerVector
 	return powerVector
 
@@ -111,7 +111,7 @@ gridSerialNumber = 18
 #gridSerialNumber = 42
 #gridSerialNumber = 2866	# The program input
 
-print 'Starting Processing',time.strftime('%X %x %Z')
+print 'Starting Processing at',time.strftime('%X %x %Z')
 
 fuelCellArrayAs2DList = make2dList(301,301)
 clearArray(fuelCellArrayAs2DList,0)
@@ -128,5 +128,11 @@ print 'max is', powerLocation
 newData = comm.gather(powerLocation,root=0)
 if MPrank == 0:
    print 'master:'
+   maxPowerFound = 0
    for processor in newData:
 	print processor
+	if processor[3] > maxPower:
+		maxPower = processor[3]
+		
+print 'Ended Processing at',time.strftime('%X %x %Z')
+print 'Max power is',maxPower
