@@ -1,4 +1,6 @@
 # Based on https://rabernat.github.io/research_computing/parallel-programming-with-mpi-for-python.html
+# Also https://mpi4py.readthedocs.io/en/stable/tutorial.html
+
 from mpi4py import MPI
 
 comm = MPI.COMM_WORLD
@@ -13,24 +15,9 @@ else:
    
 data = comm.scatter(data, root=0)
 
-data = [rank, 10]
+data = [[rank,10],[rank,11],[rank,12],[rank,13]]
 newData = comm.gather(data,root=0)
 if rank == 0:
-   print 'master:',newData
-		
-data = [rank, 11]
-newData = comm.gather(data,root=0)
-if rank == 0:
-   print 'master:',newData
-		
-data = [rank, 12]
-newData = comm.gather(data,root=0)
-if rank == 0:
-   print 'master:',newData
-		
-data = [rank, 13]
-newData = comm.gather(data,root=0)
-
-if rank == 0:
-   print 'master:',newData
-		
+   print 'master:'
+   for processor in newData:
+	print processor
