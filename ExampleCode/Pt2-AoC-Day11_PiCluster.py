@@ -131,8 +131,9 @@ if MPrank == 0:
    maxPowerFound = 0
    for processor in newData:
 	print processor
-	if processor[3] > maxPower:
-		maxPower = processor[3]
+	if processor[3] > maxPowerFound:
+		maxPowerFound = processor[3]
+	print 'Max power is',maxPowerFound
 		
 print 'Ended Processing at',time.strftime('%X %x %Z')
-print 'Max power is',maxPower
+
