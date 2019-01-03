@@ -136,4 +136,3 @@ if MPrank == 0:
 	print 'Max power is',maxPowerFound
 		
 print 'Ended Processing at',time.strftime('%X %x %Z')
-
