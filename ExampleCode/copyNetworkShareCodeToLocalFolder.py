@@ -21,18 +21,16 @@ Code
 '''
 
 import os
-import time
 from mpi4py import MPI
 
 comm = MPI.COMM_WORLD
 myRank = comm.rank
 mySize = comm.size
 
-data = 1
-while True:
+for data in xrange(mySize):
 	if myRank == 0:
 		comm.send(0, dest=data)
-	else:
-		data = comm.recv(source=0)
-		os.system('sudo mkdir ClusterLocal')
-		os.system('sudo cp /ClusterShare/Pt2-AoC-Day11_PiCluster.py ClusterLocal/')
+else:
+	data = comm.recv(source=0)
+	print 'node',myRank
+	os.system('sudo cp /ClusterShare/Pt2-AoC-Day11_PiCluster.py ~/ClusterLocal/')
