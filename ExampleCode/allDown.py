@@ -6,7 +6,7 @@ Code to shut down all cards
 
 Run by typing on the main processor -
 
-mpirun.openmpi -np 8 -machinefile /home/pi/mpi_testing/machinefile python allDown.py
+mpirun.openmpi -np 8 -machinefile /home/pi/mpi_testing/machinefile python /ClusterShare/allDown.py
 
 Where -np 8 = Run on 8 processors
 machinefile contains a list of the IP addresses of the cards
