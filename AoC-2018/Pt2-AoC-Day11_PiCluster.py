@@ -89,6 +89,7 @@ def interateOverFuelArraySizes(fuelCellArrayAs2DList):
 	maxXY_Power = [0,0,0,0]
 	powerMax = 0
 	powerLocation = [0,0]
+	powerVector = maxXY_Power
 	for size in xrange(MPrank,len(fuelCellArrayAs2DList)-1,MPsize):
 		maxXY_Power = findLargestNxNPowerGrid(size,fuelCellArrayAs2DList)
 		if maxXY_Power[3] > powerMax:
@@ -136,4 +137,3 @@ if MPrank == 0:
 	print 'Max power is',maxPowerFound
 		
 print 'Ended Processing at',time.strftime('%X %x %Z')
-
