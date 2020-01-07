@@ -3,7 +3,7 @@
 <img src="http://land-boards.com/blwiki/images/0/0c/Pi-Cluster-P1010345-720px.jpg" alt="Raspberry Pi Cluster"></img>
 
 * These are our Raspberry Pi Cluster files.
-* [http://land-boards.com/blwiki/index.php?title=PiCluster Wiki for the Raspberry Pi Cluster]
+* [http://land-boards.com/blwiki/index.php?title=Raspberry_Pi_Cluster Wiki for the Raspberry Pi Cluster]
 
 
 == Ownership ==
