@@ -4,7 +4,7 @@
 
 * These are our Raspberry Pi Cluster files.
 * [http://land-boards.com/blwiki/index.php?title=Raspberry_Pi_Cluster Wiki for the Raspberry Pi Cluster]
-
+* Some Advent of Code 2018 examples are in this repo
 
 == Ownership ==
 
